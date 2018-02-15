@@ -21,7 +21,6 @@ import org.usfirst.frc.team6956.robot.commands.TimedDriveStraight;
 import org.usfirst.frc.team6956.robot.subsystems.Arm;
 import org.usfirst.frc.team6956.robot.subsystems.Climber;
 import org.usfirst.frc.team6956.robot.subsystems.Drivetrain;
-import org.usfirst.frc.team6956.robot.subsystems.ExampleSubsystem;
 import org.usfirst.frc.team6956.robot.subsystems.Grabber;
 
 /**
@@ -32,7 +31,6 @@ import org.usfirst.frc.team6956.robot.subsystems.Grabber;
  * project.
  */
 public class Robot extends TimedRobot {
-	public static final ExampleSubsystem kExampleSubsystem = new ExampleSubsystem();
 	public static OI m_oi;
 
 	public static final Drivetrain drivetrain = new Drivetrain();
