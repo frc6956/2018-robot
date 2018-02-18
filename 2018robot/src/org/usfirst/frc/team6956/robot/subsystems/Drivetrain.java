@@ -38,6 +38,8 @@ public class Drivetrain extends Subsystem {
 	// here. Call these from Commands.
 	
 	public Drivetrain() {
+		m_rightSRX.setInverted(true);
+		m_rightSPX.setInverted(true);
 		m_leftSRX.configSelectedFeedbackSensor(FeedbackDevice.CTRE_MagEncoder_Absolute, 0, 0);
 		m_rightSRX.configSelectedFeedbackSensor(FeedbackDevice.CTRE_MagEncoder_Absolute, 0, 0);
 	}

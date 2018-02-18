@@ -9,6 +9,7 @@ package org.usfirst.frc.team6956.robot;
 
 import edu.wpi.first.wpilibj.AnalogGyro;
 import edu.wpi.first.wpilibj.DriverStation;
+import edu.wpi.first.wpilibj.PowerDistributionPanel;
 import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
@@ -38,6 +39,8 @@ public class Robot extends TimedRobot {
 	public static final Grabber grabber = new Grabber();
 	public static final Gyro gyro = new AnalogGyro(RobotMap.gyro);
 	public static final Climber climber = new Climber();
+	public static final PowerDistributionPanel pdp = new PowerDistributionPanel();
+	
 	Command m_autonomousCommand;
 	SendableChooser<Command> m_chooser = new SendableChooser<>();
 	SendableChooser<Command> m_station = new SendableChooser<>(); //Left, right, center; robot location
@@ -56,12 +59,9 @@ public class Robot extends TimedRobot {
 		
 		// chooser.addObject("My Auto", new MyAutoCommand());
 		SmartDashboard.putData("Auto mode", m_chooser);
-		
-		
-		//Initialize controller
-		
-		//Initialize motors
-		
+
+		pdp.clearStickyFaults();
+		SmartDashboard.putData(pdp);
 	}
 
 	/**
