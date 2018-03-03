@@ -17,7 +17,7 @@ public class RobotMap {
 	// For example to map the left and right motors, you could define the
 	// following variables to use with your drivetrain subsystem.
 	//USB Ports
-	public static final int driverControllerLeft = 0;
+	public static final int driverControllerLeft = 0; //xbox controller usb port when not using joysticks
 	public static final int driverControllerRight = 1;
 	public static final int operatorController = 2;
 //	CAN
@@ -25,8 +25,6 @@ public class RobotMap {
 	public static final int leftDriveMotor = 2;
 	public static final int rightDriveMotor2 = 1;
 	public static final int leftDriveMotor2 = 2;
-	// public static int leftMotor = 1;
-	// public static int rightMotor = 2;
 	//PWM
 	public static final int arm = 0;
 	

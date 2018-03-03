@@ -16,6 +16,7 @@ import edu.wpi.first.wpilibj.drive.DifferentialDrive;
  */
 public class Drivetrain extends Subsystem {
 	static final double ticsPerInch = 4096/(6*Math.PI);
+	private double speedLimit = 0.6; // note: 0.25 is too small to move the robot
 	
 //	VictorSP m_frontLeft = new VictorSP(RobotMap.frontLeft);
 //	VictorSP m_rearLeft = new VictorSP(RobotMap.backLeft);
@@ -51,9 +52,13 @@ public class Drivetrain extends Subsystem {
 	}
 	
 	public void setTankDrive(double left_Power, double right_Power) {
-		m_drive.tankDrive(left_Power, right_Power);
-		
+		m_drive.tankDrive(left_Power * speedLimit, right_Power * speedLimit);	
 	} 
+	
+	public void setArcadeMode(double xSpeed, double zRotation) {
+		m_drive.arcadeDrive(xSpeed * speedLimit,  zRotation * speedLimit);	
+	} 
+	
 	
 	public double getDistanceTravelled() {
 		double total = m_leftSRX.getSelectedSensorPosition(0) / ticsPerInch;

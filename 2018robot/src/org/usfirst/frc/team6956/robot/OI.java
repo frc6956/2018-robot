@@ -17,6 +17,7 @@ import edu.wpi.first.wpilibj.XboxController;
  */
 public class OI {
 	public static final boolean useJoysticks = false;
+	public static final boolean useArcadeMode = false;
 	XboxController driver = new XboxController(RobotMap.driverControllerLeft);
 	Joystick driverLeft = new Joystick(RobotMap.driverControllerLeft);
 	Joystick driverRight = new Joystick(RobotMap.driverControllerRight);
@@ -35,6 +36,14 @@ public class OI {
 		} else {
 			return -driver.getY(Hand.kRight);
 		}
+	}
+	
+	public double getArcadeY() {
+		return getLeftDrive();
+	}
+	
+	public double getArcadeX() {
+		return getRightDrive();
 	}
 	
 	public double getArmSpeed() {

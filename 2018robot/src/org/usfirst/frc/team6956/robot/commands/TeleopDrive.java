@@ -22,7 +22,11 @@ public class TeleopDrive extends Command {
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
 //    	Driver
-    	Robot.drivetrain.setTankDrive(Robot.m_oi.getLeftDrive(), Robot.m_oi.getRightDrive());
+    	if( Robot.m_oi.useArcadeMode) {
+    		Robot.drivetrain.setArcadeMode(Robot.m_oi.getArcadeY(), Robot.m_oi.getArcadeX());
+    	} else { 
+    		Robot.drivetrain.setTankDrive(Robot.m_oi.getLeftDrive(), Robot.m_oi.getRightDrive());
+    	}
     }
 
     // Make this return true when this Command no longer needs to run execute()
