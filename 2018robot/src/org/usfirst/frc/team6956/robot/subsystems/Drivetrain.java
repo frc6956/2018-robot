@@ -16,7 +16,7 @@ import edu.wpi.first.wpilibj.drive.DifferentialDrive;
  */
 public class Drivetrain extends Subsystem {
 	static final double ticsPerInch = 4096/(6*Math.PI);
-	private double speedLimit = 0.6; // note: 0.25 is too small to move the robot
+	private double speedLimit = 1.0; // note: 0.25 is too small to move the robot
 	
 //	VictorSP m_frontLeft = new VictorSP(RobotMap.frontLeft);
 //	VictorSP m_rearLeft = new VictorSP(RobotMap.backLeft);

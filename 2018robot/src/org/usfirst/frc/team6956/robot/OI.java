@@ -43,7 +43,11 @@ public class OI {
 	}
 	
 	public double getArcadeX() {
-		return getRightDrive();
+		if (useJoysticks) {
+			return driverLeft.getX();
+		} else { 
+			return driver.getX(Hand.kRight);
+		}
 	}
 	
 	public double getArmSpeed() {
