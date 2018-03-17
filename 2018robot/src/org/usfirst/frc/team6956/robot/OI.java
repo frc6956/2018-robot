@@ -55,7 +55,8 @@ public class OI {
 	}
 	
 	public double getClimber() {
-		return Math.abs(operator.getY(Hand.kLeft));
+		return 0.0;
+		//return Math.abs(operator.getY(Hand.kLeft));
 	}
 	
 	public boolean openGrabber() {
@@ -64,5 +65,9 @@ public class OI {
 	
 	public boolean closeGrabber() {
 		return operator.getBumperPressed(Hand.kLeft);
+	}
+	
+	public double getSpinnerSpeed() {
+		return -operator.getY(Hand.kLeft);
 	}
 }

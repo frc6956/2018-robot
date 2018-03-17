@@ -28,6 +28,8 @@ public class TeleopGrabber extends Command {
     	if(Robot.m_oi.openGrabber()) {
     		Robot.grabber.open();
     	}
+    	
+    	Robot.grabber.spin(Robot.m_oi.getSpinnerSpeed());
     }
 
     // Make this return true when this Command no longer needs to run execute()

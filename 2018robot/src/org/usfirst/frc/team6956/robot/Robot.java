@@ -53,15 +53,19 @@ public class Robot extends TimedRobot {
 	@Override
 	public void robotInit() {
 		m_oi = new OI();
-		m_chooser.addDefault("Auto 3s", new TimedDriveStraight(3));
-		m_chooser.addObject("Auto 1s", new TimedDriveStraight(1));
-		m_chooser.addObject("DriveDistance", new DriveDistance(80));
+		m_chooser.addDefault("Auto cross line", new TimedDriveStraight(6));
+		m_chooser.addObject("Do nothing", null);
 		
 		// chooser.addObject("My Auto", new MyAutoCommand());
 		SmartDashboard.putData("Auto mode", m_chooser);
 
 		pdp.clearStickyFaults();
 		SmartDashboard.putData(pdp);
+	}
+	
+	public void robotPeriodic() {
+		double matchTime = DriverStation.getInstance().getMatchTime();
+		SmartDashboard.putNumber("Match Time", matchTime);
 	}
 
 	/**
@@ -93,6 +97,7 @@ public class Robot extends TimedRobot {
 	@Override
 	public void autonomousInit() {
 		game_message = DriverStation.getInstance().getGameSpecificMessage(); //e.g. "LLL", "LRL", "RLR", "RRR"
+		SmartDashboard.putString("Plate Position", game_message);
 		m_autonomousCommand = m_chooser.getSelected();
 
 		/*
