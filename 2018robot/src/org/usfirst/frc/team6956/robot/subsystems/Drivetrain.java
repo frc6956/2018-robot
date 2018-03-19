@@ -17,6 +17,7 @@ import edu.wpi.first.wpilibj.drive.DifferentialDrive;
 public class Drivetrain extends Subsystem {
 	static final double ticsPerInch = 4096/(6*Math.PI);
 	private double speedLimit = 1.0; // note: 0.25 is too small to move the robot
+	double zeroDistance;
 	
 //	VictorSP m_frontLeft = new VictorSP(RobotMap.frontLeft);
 //	VictorSP m_rearLeft = new VictorSP(RobotMap.backLeft);
@@ -43,6 +44,7 @@ public class Drivetrain extends Subsystem {
 		m_rightSPX.setInverted(true);
 		m_leftSRX.configSelectedFeedbackSensor(FeedbackDevice.CTRE_MagEncoder_Absolute, 0, 0);
 		m_rightSRX.configSelectedFeedbackSensor(FeedbackDevice.CTRE_MagEncoder_Absolute, 0, 0);
+		resetDistanceTravelled();
 	}
 
 	public void initDefaultCommand() {
@@ -59,15 +61,16 @@ public class Drivetrain extends Subsystem {
 		m_drive.arcadeDrive(xSpeed * speedLimit,  zRotation * speedLimit);	
 	} 
 	
-	
 	public double getDistanceTravelled() {
+		return getRawDistanceTravelled() - zeroDistance;
+	}
+	public double getRawDistanceTravelled() {
 		double total = m_leftSRX.getSelectedSensorPosition(0) / ticsPerInch;
 		total += m_rightSRX.getSelectedSensorPosition(0) / ticsPerInch;
 		return(total/2);
 	}
 	
 	public void resetDistanceTravelled() {
-		m_leftSRX.setSelectedSensorPosition(0, 0, 0);
-		m_rightSRX.setSelectedSensorPosition(0, 0, 0);
+		zeroDistance = getRawDistanceTravelled();
 	}
 }

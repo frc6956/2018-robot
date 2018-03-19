@@ -37,7 +37,7 @@ public class Robot extends TimedRobot {
 	public static final Drivetrain drivetrain = new Drivetrain();
 	public static final Arm arm = new Arm();
 	public static final Grabber grabber = new Grabber();
-	public static final Gyro gyro = new AnalogGyro(RobotMap.gyro);
+	public static final Gyro gyro = new Navigation();
 	public static final Climber climber = new Climber();
 	public static final PowerDistributionPanel pdp = new PowerDistributionPanel();
 	
